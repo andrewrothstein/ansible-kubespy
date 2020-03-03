@@ -1,0 +1,55 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: check for install dir
+  become: yes
+  stat:
+    path: '{{ kubespy_install_dir }}'
+  changed_when: False
+  register: kubespy_binary
+- when: not kubespy_binary.stat.exists
+  block:
+    - name: download tgz
+      become: yes
+      become_user: root
+      get_url:
+        url: '{{ kubespy_url }}'
+        dest: /tmp/{{ kubespy_tgz }}
+        mode: 0644
+    - name: mkdir {{ kubespy_install_dir }}
+      become: yes
+      become_user: root
+      file:
+        path: '{{ kubespy_install_dir }}'
+        state: directory
+        mode: 0755
+    - name: unarchive
+      become: yes
+      become_user: root
+      unarchive:
+        remote_src: yes
+        src: /tmp/{{ kubespy_tgz }}
+        dest: '{{ kubespy_install_dir }}'
+        creates: '{{ kubespy_exe }}'
+  always:
+    - name: cleanup
+      become: yes
+      become_user: root
+      file:
+        path: /tmp/{{ kubespy_tgz }}
+        state: absent
+- name: link
+  become: yes
+  become_user: root
+  file:
+    src: '{{ kubespy_exe }}'
+    dest: '{{ kubespy_link }}'
+    state: link
