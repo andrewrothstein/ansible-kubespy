@@ -1,6 +1,6 @@
 andrewrothstein.kubespy
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-kubespy.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-kubespy)
+![Build Status](https://github.com/andrewrothstein/ansible-kubespy/actions/workflows/build.yml/badge.svg)
 
 Installs [kubespy](https://github.com/pulumi/kubespy).
 
