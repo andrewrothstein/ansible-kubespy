@@ -10,44 +10,44 @@
       paths:
         - '{{ role_path }}/vars'
 - name: check for {{ kubespy_install_dir }}
-  become: yes
+  become: true
   stat:
     path: '{{ kubespy_install_dir }}'
-  changed_when: False
+  changed_when: false
   register: kubespy_binary
 - when: not kubespy_binary.stat.exists
   block:
     - name: downloading {{ kubespy_url }}...
-      become: yes
+      become: true
       become_user: root
       get_url:
         url: '{{ kubespy_url }}'
         dest: '{{ kubespy_tmp_tgz }}'
         mode: 0644
     - name: mkdir {{ kubespy_install_dir }}
-      become: yes
+      become: true
       become_user: root
       file:
         path: '{{ kubespy_install_dir }}'
         state: directory
         mode: 0755
     - name: unarchiving {{ kubespy_tmp_tgz }} into {{ kubespy_install_dir }}...
-      become: yes
+      become: true
       become_user: root
       unarchive:
-        remote_src: yes
+        remote_src: true
         src: '{{ kubespy_tmp_tgz }}'
         dest: '{{ kubespy_install_dir }}'
         creates: '{{ kubespy_exe }}'
   always:
     - name: cleanup {{ kubespy_tmp_tgz }}
-      become: yes
+      become: true
       become_user: root
       file:
         path: '{{ kubespy_tmp_tgz }}'
         state: absent
 - name: linking {{ kubespy_link }} to {{ kubespy_exe }}...
-  become: yes
+  become: true
   become_user: root
   file:
     src: '{{ kubespy_exe }}'
