@@ -9,7 +9,7 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: check for {{ kubespy_install_dir }}
+- name: check for install at {{ kubespy_install_dir }}
   become: true
   stat:
     path: '{{ kubespy_install_dir }}'

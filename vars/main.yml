@@ -1,10 +1,10 @@
 ---
 # vars file for kubespy
 kubespy_platform: '{{ kubespy_os }}-{{ kubespy_arch }}'
-kubespy_name: kubespy{{ kubespy_dotexe | default("") }}-{{ kubespy_ver }}-{{ kubespy_platform }}
+kubespy_name: kubespy-v{{ kubespy_ver }}-{{ kubespy_platform }}
 kubespy_tgz: '{{ kubespy_name }}.tar.gz'
-kubespy_tmp_tgz: /tmp/{{ kubespy_tgz }}
-kubespy_url: '{{ kubespy_mirror }}/{{ kubespy_ver }}/{{ kubespy_tgz }}'
+kubespy_tmp_tgz: '{{ kubespy_tmp_dir | default("/tmp") }}/{{ kubespy_tgz }}'
+kubespy_url: '{{ kubespy_mirror }}/v{{ kubespy_ver }}/{{ kubespy_tgz }}'
 kubespy_checksum: '{{ kubespy_checksums[kubespy_ver][kubespy_platform] }}'
 kubespy_install_dir: '{{ kubespy_parent_install_dir }}/{{ kubespy_name }}'
 kubespy_exe: '{{ kubespy_install_dir }}/kubespy'

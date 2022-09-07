@@ -1,16 +1,16 @@
 ---
 # defaults file for kubespy
-kubespy_ver: v0.6.0
+kubespy_ver: 0.6.1
 kubespy_mirror: https://github.com/pulumi/kubespy/releases/download
 kubespy_os: linux
 kubespy_arch: amd64
 kubespy_parent_install_dir: /usr/local
 kubespy_checksums:
-  # https://github.com/pulumi/kubespy/releases/download/v0.6.0/checksums.txt
-  v0.6.0:
-    # https://github.com/pulumi/kubespy/releases/download/v0.6.0/kubespy-v0.6.0-darwin-amd64.tar.gz
-    darwin-amd64: sha256:ef11a89d46ef75ee72f9657a66cb34f56dd25799e954e643fd40a4cbdad436f6
-    # https://github.com/pulumi/kubespy/releases/download/v0.6.0/kubespy-v0.6.0-linux-amd64.tar.gz
-    linux-amd64: sha256:ef3c8aa133abd6a160692d9381932017b7e2511d2dbb124af0eaea5148f4776e
-    # https://github.com/pulumi/kubespy/releases/download/v0.6.0/kubespy.exe-v0.6.0-windows-amd64.tar.gz
-    windows-amd64: sha256:d72d8c2607ff50a46f399b9f823a6f65f3552450909092725e5948d0866d82fe
+  # https://github.com/pulumi/kubespy/releases/download/v0.6.1/checksums.txt
+  '0.6.1':
+    # https://github.com/pulumi/kubespy/releases/download/v0.6.1/kubespy-v0.6.1-darwin-amd64.tar.gz
+    darwin-amd64: sha256:f7a140cdd469b5b203ae96c06f98a72fce54c7f1a4330c0c373b05df4caadef7
+    # https://github.com/pulumi/kubespy/releases/download/v0.6.1/kubespy-v0.6.1-linux-amd64.tar.gz
+    linux-amd64: sha256:e7b21ee2055e76bbdd6a00267eb8789e430119b1df3ab69497d1201fefa24d83
+    # https://github.com/pulumi/kubespy/releases/download/v0.6.1/kubespy-v0.6.1-windows-amd64.tar.gz
+    windows-amd64: sha256:2bbd2b12c0477015caa96e5ad06809bb85ec7337caa0eab59b35655cce90f263
