@@ -1,5 +1,7 @@
 ---
 # vars file for kubespy
+kubespy_os: '{{ ansible_system | lower }}'
+kubespy_arch: '{{ kubespy_arch_map[ansible_architecture] }}'
 kubespy_platform: '{{ kubespy_os }}-{{ kubespy_arch }}'
 kubespy_name: kubespy-v{{ kubespy_ver }}-{{ kubespy_platform }}
 kubespy_tgz: '{{ kubespy_name }}.tar.gz'

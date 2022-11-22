@@ -2,8 +2,8 @@
 # defaults file for kubespy
 kubespy_ver: 0.6.1
 kubespy_mirror: https://github.com/pulumi/kubespy/releases/download
-kubespy_os: linux
-kubespy_arch: amd64
+kubespy_arch_map:
+  x86_64: amd64
 kubespy_parent_install_dir: /usr/local
 kubespy_checksums:
   # https://github.com/pulumi/kubespy/releases/download/v0.6.1/checksums.txt
