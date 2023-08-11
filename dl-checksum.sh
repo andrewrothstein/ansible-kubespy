@@ -36,4 +36,4 @@ dlver () {
     dl $lchecksums $ver windows amd64
 }
 
-dlver ${1:-0.6.1}
+dlver ${1:-0.6.2}
